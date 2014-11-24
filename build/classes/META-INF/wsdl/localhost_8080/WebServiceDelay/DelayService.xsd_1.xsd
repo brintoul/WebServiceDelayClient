@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://tester.controlledthinking.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://tester.controlledthinking.com/">
+
+<xs:element name="delayFifteen" type="tns:delayFifteen"/>
+
+<xs:element name="delayFifteenResponse" type="tns:delayFifteenResponse"/>
+
+<xs:element name="delayFive" type="tns:delayFive"/>
+
+<xs:element name="delayFiveResponse" type="tns:delayFiveResponse"/>
+
+<xs:element name="delayTen" type="tns:delayTen"/>
+
+<xs:element name="delayTenResponse" type="tns:delayTenResponse"/>
+
+<xs:complexType name="delayTen">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="delayTenResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="delayFifteen">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="delayFifteenResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="delayFive">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="delayFiveResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
