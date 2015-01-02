@@ -7,8 +7,14 @@ package com.controlledthinking.test.client;
 
 import com.controlledthinking.tester.DelayService;
 import com.controlledthinking.tester.DelayService_Service;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -41,15 +47,14 @@ public class DelayServiceCaller {
     public void callNewFashioned() {
         long timeStart = System.currentTimeMillis();
         DelayServiceRunnable runner5 = new DelayServiceRunnable(port);
-        executorService.submit(() -> {
-            port.delayFive();
-        });
-        executorService.submit(() -> {
-            port.delayTen();
-        });
-        executorService.submit(() -> {
-            port.delayFifteen();
-        });
+        Collection<DelayServiceRunnable> tasks;
+        tasks = new ArrayList<>();
+        tasks.add( runner5 );
+        try {
+            executorService.invokeAll(tasks);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(DelayServiceCaller.class.getName()).log(Level.SEVERE, null, ex);
+        }
         long timeEnd = System.currentTimeMillis();
         System.out.println("Total Execution Time: " + (timeEnd - timeStart)/1000);
     }

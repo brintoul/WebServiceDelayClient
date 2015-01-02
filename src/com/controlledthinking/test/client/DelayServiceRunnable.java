@@ -6,12 +6,13 @@
 package com.controlledthinking.test.client;
 
 import com.controlledthinking.tester.DelayService;
+import java.util.concurrent.Callable;
 
 /**
  *
  * @author brintoul
  */
-public class DelayServiceRunnable implements Runnable {
+public class DelayServiceRunnable implements Callable<String> {
 
     private DelayService port;
     
@@ -20,8 +21,8 @@ public class DelayServiceRunnable implements Runnable {
     }
     
     @Override
-    public void run() {
-        port.delayFive();
+    public String call() throws Exception  {
+        return port.delayFive();
     }
-    
+
 }
